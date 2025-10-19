@@ -18,6 +18,43 @@ This repository contains Jupyter notebooks implementing two **time series foreca
 
 ---
 
+###  Numerical Experiments on GBM and NS Data
+
+The experiments were carried out on two representative time-series datasets:
+
+- **Geometric Brownian Motion (GBM):** 
+  A stochastic process following  
+
+  
+  $$dX_t = \mu X_t\,dt + \sigma X_t\,dW_t$$
+  
+
+  simulated as  
+
+  
+  $$X_t = X_0 \exp\left((\mu - \tfrac{1}{2}\sigma^2)t + \sigma W_t\right)$$
+  
+
+  modeling multiplicative noise dynamics commonly used in financial contexts.
+
+- **Noisy Sinusoidal Data (NS):**  
+  Deterministic sinusoidal signals perturbed by Gaussian noise.
+
+  $$y_i = \sin(x_i) + \varepsilon_i \text{ with }  \varepsilon_i \sim \mathcal{N}(0, \sigma_{\varepsilon}^2)$$
+  
+
+Both datasets were used to evaluate and compare the performance of **GPR** and **NPSR** under varying:
+- Sample sizes \(M\),
+- Discretization levels \(N\),
+- Signature truncation depths.
+
+Model performance was quantified via **Root Mean Square Error (RMSE)** and complemented by a **condition number analysis** to assess numerical stability.  
+Empirically:
+- **NPSR** demonstrated flexibility but increased sensitivity to conditioning at higher signature truncations.  
+- **Signature-kernel GPR** achieved smoother convergence and provided uncertainty quantification via posterior variance estimates.
+
+---
+
 ###  Analysis and Visualization
 
 The notebooks include:
